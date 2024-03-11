@@ -1,3 +1,4 @@
 .env
 .git
 vendor/
+wp-config.php
