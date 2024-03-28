@@ -1,0 +1,25 @@
+version: '3'
+services:
+  proxy:
+    image: "nginx:stable"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d/
+      - ./includes:/etc/nginx/includes/
+      - ./backend-not-found.html:/var/www/html/backend-not-found.html
+    networks:
+      - site1
+      - site2
+      - wordpress
+    ports:
+      - 80:80
+
+networks:
+  site1:
+    external:
+      name: site1_default
+  site2:
+    external:
+      name: site2_default
+  wordpress:
+    external:
+      name: wordpress_default
