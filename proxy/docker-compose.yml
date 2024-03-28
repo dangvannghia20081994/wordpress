@@ -5,13 +5,13 @@ services:
     volumes:
       - ./conf.d:/etc/nginx/conf.d/
       - ./includes:/etc/nginx/includes/
-      - ./backend-not-found.html:/var/www/html/backend-not-found.html
+      - ./not-found.html:/var/www/html/not-found.html
     networks:
       - site1
       - site2
       - wordpress
     ports:
-      - 80:80
+      - "80:80"
 
 networks:
   site1:
